@@ -1,6 +1,7 @@
 import express from 'express';
 import routes from './routes';
 
+import './database';
 
 class App {
   constructor() { // Executa automatico (constroi) quando a classe é chamada.
