@@ -20,6 +20,10 @@ class Cliente extends Model {
     return this;
   }
 
+  // Associação entre tabela users e files
+  static associate(models) {
+    this.belongsTo(models.User, { foreignKey: 'user_id' });
+  }
 }
 
 export default Cliente;

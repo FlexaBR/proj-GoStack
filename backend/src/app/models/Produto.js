@@ -5,7 +5,7 @@ class Produto extends Model {
     super.init(
       {
         ativo: Sequelize.BOOLEAN,
-        nome_produto: Sequelize.STRING,
+        nome: Sequelize.STRING,
         referencia: Sequelize.STRING,
         unidade: Sequelize.STRING,
         caixa_padrao: Sequelize.STRING,
@@ -19,6 +19,11 @@ class Produto extends Model {
     );
 
     return this;
+  }
+
+  // Associação entre tabelas
+  static associate(models) {
+    this.belongsTo(models.Fabrica, { foreignKey: 'fabrica_id', as: 'fabrica' });
   }
 }
 

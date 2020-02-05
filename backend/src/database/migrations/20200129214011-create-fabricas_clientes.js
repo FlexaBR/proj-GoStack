@@ -10,12 +10,24 @@ module.exports = {
       //foreign key usage
       cliente_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'clientes', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
       },
       fabrica_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'fabricas', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
       },
       preposto_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'prepostos', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
       comissao_cliente: {
         type: Sequelize.DECIMAL(3, 2),

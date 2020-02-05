@@ -4,7 +4,7 @@ class Cidade extends Model {
   static init(sequelize) {
     super.init(
       {
-        nome_cidade: Sequelize.STRING,
+        nome: Sequelize.STRING,
         estado: Sequelize.STRING,
       },
       {
@@ -14,7 +14,6 @@ class Cidade extends Model {
 
     return this;
   }
-
 }
 
 export default Cidade;

@@ -10,9 +10,17 @@ module.exports = {
       //foreign key usage
       pedido_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'pedidos', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
       },
       produto_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'produtos', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
       cancelado: {
         type: Sequelize.BOOLEAN,
@@ -26,7 +34,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       quantidade: {
-        type: Sequelize.INTEGER.UNSIGNED,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       preco: {

@@ -20,6 +20,12 @@ class Pedido_Produto extends Model {
 
     return this;
   }
+
+  // Associação entre tabelas
+  static associate(models) {
+    this.belongsTo(models.Pedido, { foreignKey: 'pedido_id', as: 'pedido' });
+    this.belongsTo(models.Produto, { foreignKey: 'produto_id', as: 'produto' });
+  }
 }
 
 export default Pedido_Produto;

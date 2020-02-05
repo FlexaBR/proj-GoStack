@@ -10,6 +10,10 @@ module.exports = {
       //foreign key usage
       pedido_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'pedidos', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
       },
       cancelado: {
         type: Sequelize.BOOLEAN,

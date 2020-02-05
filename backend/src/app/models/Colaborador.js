@@ -5,7 +5,7 @@ class Colaborador extends Model {
     super.init(
       {
         desligado: Sequelize.BOOLEAN,
-        nome_colaborador: Sequelize.STRING,
+        nome: Sequelize.STRING,
         data_nascimento: Sequelize.DATE,
         data_admissao: Sequelize.DATE,
         tipo_logradouro: Sequelize.STRING,
@@ -30,6 +30,12 @@ class Colaborador extends Model {
     );
 
     return this;
+  }
+
+  // Associação entre tabelas
+  static associate(models) {
+    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+    this.belongsTo(models.Cidade, { foreignKey: 'cidade_id', as: 'cidade' });
   }
 }
 

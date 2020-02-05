@@ -24,6 +24,11 @@ class Fatura extends Model {
 
     return this;
   }
+
+  // Associação entre tabelas
+  static associate(models) {
+    this.belongsTo(models.Pedido, { foreignKey: 'pedido_id', as: 'pedido' });
+  }
 }
 
 export default Fatura;

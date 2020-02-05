@@ -30,6 +30,15 @@ class UserController {
     });
   }
 
+  async index(req, res) {
+    const users = await User.findAll({
+      attributes: ['id', 'name', 'email', 'admin', 'ativo'],
+    });
+
+    return res.json(users)
+  }
+
+
   async update(req, res) {
 
     const { email, oldPassword } = req.body;

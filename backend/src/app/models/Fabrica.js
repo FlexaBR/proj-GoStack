@@ -28,6 +28,11 @@ class Fabrica extends Model {
 
     return this;
   }
+
+  // Associação entre tabela users e files
+  static associate(models) {
+    this.belongsTo(models.Cidade, { foreignKey: 'cidade_id', as: 'cidade' });
+  }
 }
 
 export default Fabrica;

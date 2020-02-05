@@ -27,6 +27,13 @@ class Pedido extends Model {
 
     return this;
   }
+
+  // Associação entre tabelas
+  static associate(models) {
+    this.belongsTo(models.Cliente, { foreignKey: 'cliente_id', as: 'cliente' });
+    this.belongsTo(models.Fabrica, { foreignKey: 'fabrica_id', as: 'fabrica' });
+    this.belongsTo(models.Preposto, { foreignKey: 'preposto_id', as: 'preposto' });
+  }
 }
 
 export default Pedido;

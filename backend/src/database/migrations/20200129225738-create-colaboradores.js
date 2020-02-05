@@ -9,15 +9,26 @@ module.exports = {
       },
 
       //foreign key usage
+      user_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
+      },
       cidade_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'cidades', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
       desligado: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
       },
-      nome_colaborador: {
+      nome: {
         type: Sequelize.STRING,
         allowNull: false
       },

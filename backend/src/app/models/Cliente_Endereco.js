@@ -22,6 +22,12 @@ class Cliente_Endereco extends Model {
 
     return this;
   }
+
+  // Associação entre tabela users e files
+  static associate(models) {
+    this.belongsTo(models.Cliente, { foreignKey: 'cliente_id', as: 'cliente' });
+    this.belongsTo(models.Cidade, { foreignKey: 'cidade_id', as: 'cidade' });
+  }
 }
 
 export default Cliente_Endereco;

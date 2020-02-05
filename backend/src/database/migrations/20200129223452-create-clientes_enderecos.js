@@ -11,9 +11,17 @@ module.exports = {
       //foreign key usage
       cliente_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'clientes', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
       },
       cidade_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'cidades', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
       tipo_logradouro: {
         type: Sequelize.STRING,

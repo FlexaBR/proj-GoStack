@@ -1,13 +1,17 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('perfis', {
+    return queryInterface.createTable('files', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      descricao: {
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      path: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
@@ -19,12 +23,12 @@ module.exports = {
       updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
-      }
+      },
     });
-
   },
 
+  // eslint-disable-next-line no-unused-vars
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('perfis');
-  }
+    return queryInterface.dropTable('files');
+  },
 };

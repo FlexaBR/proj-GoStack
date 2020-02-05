@@ -5,7 +5,7 @@ class Preposto extends Model {
     super.init(
       {
         situacao: Sequelize.INTEGER,
-        nome_preposto: Sequelize.STRING,
+        nome: Sequelize.STRING,
         telefone: Sequelize.STRING,
         celular: Sequelize.STRING,
         email: Sequelize.STRING,
@@ -27,6 +27,11 @@ class Preposto extends Model {
     );
 
     return this;
+  }
+
+  // Associação entre tabelas
+  static associate(models) {
+    this.belongsTo(models.Cidade, { foreignKey: 'cidade_id', as: 'cidade' });
   }
 }
 

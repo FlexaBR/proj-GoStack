@@ -10,13 +10,17 @@ module.exports = {
       //foreign key usage
       fabrica_id: {
         type: Sequelize.INTEGER,
+        references: { model: 'fabricas', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        allowNull: false,
       },
       ativo: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: true,
       },
-      nome_produto: {
+      nome: {
         type: Sequelize.STRING,
         allowNull: false,
       },

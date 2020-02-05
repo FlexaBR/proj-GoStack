@@ -11,9 +11,10 @@ module.exports = {
       //foreign key usage
       user_id: {
         type: Sequelize.INTEGER,
-      },
-      cidade_id: {
-        type: Sequelize.INTEGER,
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
       situacao: {
         type: Sequelize.INTEGER,
